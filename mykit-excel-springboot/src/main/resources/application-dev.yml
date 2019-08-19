@@ -1,0 +1,8 @@
+spring:
+  #设置编码为UTF-8
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+

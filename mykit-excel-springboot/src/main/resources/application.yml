@@ -1,0 +1,16 @@
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+
+logging:
+  level: debug
+
+spring:
+  profiles:
+    include: dev
+    active: dev
+  output:
+    ansi:
+      enabled: detect
+
