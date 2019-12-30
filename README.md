@@ -14,6 +14,57 @@ mykit-excel-springboot: mykit-excel框架提供的SpringBoot测试模块
 测试工具类的Java类为：```io.mykit.excel.springboot.export.TestExportExcelUtils```，直接运行该类即可。  
 测试SpringMVC的Java类为```io.mykit.excel.springboot.springmvc.TestExportExcelContorller```，运行SpringBoot的启动类```io.mykit.excel.springboot.MykitExcelCoreApplication```
 之后，使用resources/html目录下的exportExcel.html文件导出Excel即可。如果设置的IP和端口与mykit-excel-springboot模块不同，则修改exportExcel.html文件中的IP和端口即可。
+
+# 使用方式
+1.如果是普通的Java项目，只是将Excel文件导出到本地磁盘，则只需要在项目的pom.xml文件中增加如下配置  
+```
+<dependency>
+    <groupId>io.mykit.excel</groupId>
+    <artifactId>mykit-excel-common</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>
+```
+接下来，在程序中按照如下方式导出Excel文件即可  
+```
+public static void main(String[] args) throws Exception{
+    ExportExcelUtils<Student> utils = new ExportExcelUtils<Student>();
+    List<Student> list = new ArrayList<Student>();
+    for (int i = 0; i < 10; i++) {
+        list.add(new Student(111,"张三","男"));
+        list.add(new Student(111,"李四","男"));
+        list.add(new Student(111,"王五","女"));
+    }
+    String[] columnNames = { "ID", "姓名", "性别" };
+    utils.exportExcel("用户导出", columnNames, list, new FileOutputStream("E:/test.xls"), ExportExcelUtils.EXCEL_FILE_2003);
+}
+```
+
+2.如果是基于SpringMVC的Web项目，需要导出Excel，则需要在项目的pom.xml文件中，加入如下配置
+```
+<dependency>
+    <groupId>io.mykit.excel</groupId>
+    <artifactId>mykit-excel-springmvc</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>
+```
+接下来，在程序中按照如下方式导出Excel文件即可
+```
+@RequestMapping("/excel")
+public void getExcel(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    // 准备数据
+    List<Student> list = new ArrayList<Student>();
+    for (int i = 0; i < 10; i++) {
+        list.add(new Student(111,"张三","男"));
+        list.add(new Student(111,"李四","男"));
+        list.add(new Student(111,"王五","女"));
+    }
+    String[] columnNames = { "ID", "姓名", " 性别"};
+    String fileName = "springboot_excel";
+    ExportExcelWrapper<Student> util = new ExportExcelWrapper<Student>();
+    util.exportExcel(fileName, fileName, columnNames, list, response, ExportExcelUtils.EXCEL_FILE_2003);
+}
+```
+
 # 备注
 本项目还在开发中，目前未添加到Maven中央仓库，后续开发完成会添加到Maven中央仓库
 
