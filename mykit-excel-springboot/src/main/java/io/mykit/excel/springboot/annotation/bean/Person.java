@@ -1,5 +1,5 @@
 /**
- * Copyright 2019-2999 the original author or authors.
+ * Copyright 2020-9999 the original author or authors.
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,36 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.mykit.excel.springboot.bean;
+package io.mykit.excel.springboot.annotation.bean;
+
+import io.mykit.excel.annotation.ExcelColumn;
 
 import java.io.Serializable;
 
 /**
  * @author binghe
  * @version 1.0.0
- * @description 测试类
+ * @description 测试注解导出Excel
  */
-public class Student implements Serializable {
-    private static final long serialVersionUID = -2987207599880734028L;
-    private int id;
+public class Person implements Serializable {
+    private static final long serialVersionUID = 3251965335162340137L;
+
+    @ExcelColumn(isExport = true, title = "编号", sort = 2)
+    private String id ;
+
+    @ExcelColumn(isExport = true, title = "姓名", sort = 3)
     private String name;
-    private String sex;
 
-    public Student(){
-
-    }
-
-    public Student(int id, String name, String sex){
+    public Person(String id, String name){
         this.id = id;
         this.name = name;
-        this.sex = sex;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -52,13 +52,5 @@ public class Student implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
     }
 }

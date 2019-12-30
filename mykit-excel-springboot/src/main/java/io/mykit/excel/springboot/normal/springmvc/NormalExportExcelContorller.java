@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.mykit.excel.test.springmvc;
+package io.mykit.excel.springboot.normal.springmvc;
 
+import io.mykit.excel.springboot.normal.bean.Student;
 import io.mykit.excel.springmvc.ExportExcelWrapper;
-import io.mykit.excel.test.bean.Student;
 import io.mykit.excel.utils.excel.BaseExcelExportUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,18 +33,18 @@ import java.util.List;
  */
 @Controller
 @RequestMapping(value = "/export")
-public class TestExportExcelContorller {
+public class NormalExportExcelContorller {
     @RequestMapping("/excel")
     public void getExcel(HttpServletRequest request, HttpServletResponse response) throws Exception {
         // 准备数据
-        List<Student> list = new ArrayList<>();
+        List<Student> list = new ArrayList<Student>();
         for (int i = 0; i < 10; i++) {
             list.add(new Student(111,"张三","男"));
             list.add(new Student(111,"李四","男"));
             list.add(new Student(111,"王五","女"));
         }
         String[] columnNames = { "ID", "姓名", " 性别"};
-        String fileName = "excel1";
+        String fileName = "springboot_excel";
         ExportExcelWrapper<Student> util = new ExportExcelWrapper<Student>();
         util.exportExcel(fileName, fileName, columnNames, list, response, BaseExcelExportUtils.EXCEL_FILE_2003);
     }

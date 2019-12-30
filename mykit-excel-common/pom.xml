@@ -11,5 +11,12 @@
 
     <artifactId>mykit-excel-common</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>io.mykit.excel</groupId>
+            <artifactId>mykit-excel-annotation</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>

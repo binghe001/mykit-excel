@@ -13,7 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.mykit.excel.utils;
+package io.mykit.excel.utils.excel;
+
+import io.mykit.excel.annotation.utils.StringUtils;
+import org.apache.poi.hssf.usermodel.*;
+import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.xssf.usermodel.*;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -27,34 +32,19 @@ import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFCellStyle;
-import org.apache.poi.hssf.usermodel.HSSFFont;
-import org.apache.poi.hssf.usermodel.HSSFRichTextString;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.hssf.util.HSSFColor;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFCellStyle;
-import org.apache.poi.xssf.usermodel.XSSFColor;
-import org.apache.poi.xssf.usermodel.XSSFFont;
-import org.apache.poi.xssf.usermodel.XSSFRichTextString;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
 /**
  * @author binghe
  * @version 1.0.0
  * @description Excel通用导出类
  */
-public class ExportExcelUtils<T> {
+public class BaseExcelExportUtils<T> {
 
     // 2007 版本以上 最大支持1048576行
     public  final static String  EXCEl_FILE_2007 = "2007";
     // 2003 版本 最大支持65536 行
     public  final static String  EXCEL_FILE_2003 = "2003";
+
+    public static final String TIME_PARTTEN = "yyyy-MM-dd HH:mm:ss";
 
     private static final String  SERIAL_VERSION_UID = "serialVersionUID";
 
@@ -71,9 +61,9 @@ public class ExportExcelUtils<T> {
      */
     public void exportExcel(String title, Collection<T> dataset, OutputStream out, String version) {
         if(StringUtils.isEmpty(version) || EXCEL_FILE_2003.equals(version.trim())){
-            exportExcel2003(title, null, dataset, out, "yyyy-MM-dd HH:mm:ss");
+            exportExcel2003(title, null, dataset, out, TIME_PARTTEN);
         }else{
-            exportExcel2007(title, null, dataset, out, "yyyy-MM-dd HH:mm:ss");
+            exportExcel2007(title, null, dataset, out, TIME_PARTTEN);
         }
     }
 
@@ -89,11 +79,11 @@ public class ExportExcelUtils<T> {
      * @param out 输出流
      * @param version 2003 或者 2007，不传时默认生成2003版本
      */
-    public void exportExcel(String title,String[] headers, Collection<T> dataset, OutputStream out,String version) {
+    public void exportExcel(String title, String[] headers, Collection<T> dataset, OutputStream out, String version) {
         if(StringUtils.isEmpty(version) || EXCEL_FILE_2003.equals(version.trim())){
-            exportExcel2003(title, headers, dataset, out, "yyyy-MM-dd HH:mm:ss");
+            exportExcel2003(title, headers, dataset, out, TIME_PARTTEN);
         }else{
-            exportExcel2007(title, headers, dataset, out, "yyyy-MM-dd HH:mm:ss");
+            exportExcel2007(title, headers, dataset, out, TIME_PARTTEN);
         }
     }
 
@@ -198,8 +188,7 @@ public class ExportExcelUtils<T> {
                 }
                 cell = row.createCell(k);
                 cell.setCellStyle(style2);
-                getMethodName = "get" + fieldName.substring(0, 1).toUpperCase()
-                        + fieldName.substring(1);
+                getMethodName = "get" + fieldName.substring(0, 1).toUpperCase()  + fieldName.substring(1);
                 try {
                     tCls = t.getClass();
                     getMethod = tCls.getMethod(getMethodName, new Class[] {});

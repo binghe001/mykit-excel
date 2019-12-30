@@ -12,6 +12,7 @@
     <properties>
         <poi.version>3.16</poi.version>
         <slf4j.version>1.7.2</slf4j.version>
+        <lombok.version>1.16.10</lombok.version>
     </properties>
 
     <modules>
@@ -19,6 +20,7 @@
         <module>mykit-excel-springmvc</module>
         <module>mykit-excel-test</module>
         <module>mykit-excel-springboot</module>
+        <module>mykit-excel-annotation</module>
     </modules>
 
     <dependencies>
@@ -46,6 +48,11 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
         </dependency>
     </dependencies>
 

@@ -8,12 +8,13 @@ QQ：2711098650
 mykit-excel插件是通用的Excel导出导出框架，旨在提供通用的Excel导入导出功能
 
 # 框架结构
+mykit-excel-annotation: mykit-excel框架的注解模块，提供注解标识类中的哪些字段需要导出到Excel  
 mykit-excel-common: mykit-excel框架的通用工具类，提供通用的工具模板  
 mykit-excel-springmvc: mykit-excel框架提供的SpringMVC模块，能够支持Web请求导出Excel  
 mykit-excel-springboot: mykit-excel框架提供的SpringBoot测试模块  
-测试工具类的Java类为：```io.mykit.excel.springboot.export.TestExportExcelUtils```，直接运行该类即可。  
-测试SpringMVC的Java类为```io.mykit.excel.springboot.springmvc.TestExportExcelContorller```，运行SpringBoot的启动类```io.mykit.excel.springboot.MykitExcelCoreApplication```
-之后，使用resources/html目录下的exportExcel.html文件导出Excel即可。如果设置的IP和端口与mykit-excel-springboot模块不同，则修改exportExcel.html文件中的IP和端口即可。
+测试工具类的Java类为：```io.mykit.excel.springboot.normal.export.TestExportExcelUtils```，直接运行该类即可。  
+测试SpringMVC的Java类为```io.mykit.excel.springboot.normal.springmvc.NormalExportExcelContorller```，运行SpringBoot的启动类```io.mykit.excel.springboot.MykitExcelCoreApplication```
+之后，使用resources/html目录下的normalExportExcel.html文件导出Excel即可。如果设置的IP和端口与mykit-excel-springboot模块不同，则修改exportExcel.html文件中的IP和端口即可。
 
 # 使用方式
 1.如果是普通的Java项目，只是将Excel文件导出到本地磁盘，则只需要在项目的pom.xml文件中增加如下配置  

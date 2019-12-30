@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>导出Excel</title>
+</head>
+<body>
+<form id="form_login" action="http://127.0.0.1:8080/annotation/export/excel" method="post">
+  <button id="btn-submit" οnclick="return beforeSubmit()">Submit</button>
+</form>
+
+<script type="text/javascript">
+    var loginForm = document.getElementById('form_login');
+    function beforeSubmit() {
+        loginForm.submit();
+    }
+</script>
+</body>
+</html>

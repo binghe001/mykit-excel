@@ -16,7 +16,7 @@
 package io.mykit.excel.test.export;
 
 import io.mykit.excel.test.bean.Student;
-import io.mykit.excel.utils.ExportExcelUtils;
+import io.mykit.excel.utils.excel.BaseExcelExportUtils;
 
 import java.io.FileOutputStream;
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ import java.util.List;
  */
 public class TestExportExcelUtils {
     public static void main(String[] args) throws Exception{
-        ExportExcelUtils<Student> utils = new ExportExcelUtils<Student>();
+        BaseExcelExportUtils<Student> utils = new BaseExcelExportUtils<Student>();
         List<Student> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             list.add(new Student(111,"张三","男"));
@@ -37,6 +37,6 @@ public class TestExportExcelUtils {
             list.add(new Student(111,"王五","女"));
         }
         String[] columnNames = { "ID", "姓名", "性别" };
-        utils.exportExcel("用户导出", columnNames, list, new FileOutputStream("E:/test.xls"), ExportExcelUtils.EXCEL_FILE_2003);
+        utils.exportExcel("用户导出", columnNames, list, new FileOutputStream("E:/test.xls"), BaseExcelExportUtils.EXCEL_FILE_2003);
     }
 }
