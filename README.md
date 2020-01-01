@@ -289,6 +289,9 @@ public class AnnotationExportExcelController {
 ### 常规测试
 直接运行mykit-excel-springboot项目中的io.mykit.excel.springboot.normal.export.TestExportExcelUtils类即可
 
+### 基于注解的常规测试
+直接运行mykit-excel-springboot项目中的io.mykit.excel.springboot.annotation.export.TestAnnotationExportExcelUtils类即可
+
 ### Web测试
 启动mykit-excel-springboot项目，即运行mykit-excel-springboot项目中的io.mykit.excel.springboot.MykitExcelCoreApplication类，
 将mykit-excel-springboot项目的src/main/resources/html下的normalExportExcel.html文件发布到Tomcat等Web容器中访问normalExportExcel.html文件的连接地址，
