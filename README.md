@@ -8,16 +8,16 @@ QQ：2711098650
 mykit-excel插件是通用的Excel导出导出框架，旨在提供通用的Excel导入导出功能，支持以注解方式选择JavaBean中的部分字段导出，并提供注解指定Excel列标题和排序功能。
 
 # 框架结构
-mykit-excel-annotation: mykit-excel框架的注解模块，提供注解标识类中的哪些字段需要导出到Excel  
-mykit-excel-common: mykit-excel框架的通用工具类，提供通用的工具模板  
-mykit-excel-servlet: mykit-excel框架提供的Web模块，能够支持Web请求导出Excel  
-mykit-excel-springmvc: mykit-excel框架提供的SpringMVC模块，能够支持Web请求导出Excel 
-mykit-excel-test: mykit-excel框架提供的常规测试模块   
-mykit-excel-springboot: mykit-excel框架提供的SpringBoot测试模块  
+* mykit-excel-annotation: mykit-excel框架的注解模块，提供注解标识类中的哪些字段需要导出到Excel    
+* mykit-excel-common: mykit-excel框架的通用工具类，提供通用的工具模板    
+* mykit-excel-servlet: mykit-excel框架提供的Web模块，能够支持Web请求导出Excel    
+* mykit-excel-springmvc: mykit-excel框架提供的SpringMVC模块，能够支持Web请求导出Excel   
+* mykit-excel-test: mykit-excel框架提供的常规测试模块     
+* mykit-excel-springboot: mykit-excel框架提供的SpringBoot测试模块  
+
 测试常规导出Excel工具类的Java类为：```io.mykit.excel.springboot.normal.export.TestExportExcelUtils```，直接运行该类即可。  
 
 测试注解导出Excel工具类的Java类为：```io.mykit.excel.springboot.normal.export.TestExportExcelUtils```，直接运行该类即可。  
-
 
 测试SpringMVC导出Excel的Java类为```io.mykit.excel.springboot.normal.springmvc.NormalExportExcelContorller```，运行SpringBoot的启动类```io.mykit.excel.springboot.MykitExcelCoreApplication```
 之后，使用resources/html目录下的normalExportExcel.html文件导出Excel即可。如果设置的IP和端口与mykit-excel-springboot模块不同，则修改normalExportExcel.html文件中的IP和端口即可。  
@@ -73,7 +73,7 @@ public static void main(String[] args) throws Exception{
 }
 ```
 导出的文件如下所示  
-![导出文件的效果](https://github.com/sunshinelyz/mykit-excel/blob/master/mykit-excel-springboot/src/main/resources/img/test1_20200101100928.jpg)
+![导出文件的效果](https://github.com/sunshinelyz/mykit-excel/blob/master/img/test1_20200101100928.jpg)
 
 
 
@@ -149,7 +149,7 @@ public class TestAnnotationExportExcelUtils {
 }
 ```
 导出的文件如下所示  
-![导出文件的效果](https://github.com/sunshinelyz/mykit-excel/blob/master/mykit-excel-springboot/src/main/resources/img/test2_20200101101121.jpg)
+![导出文件的效果](https://github.com/sunshinelyz/mykit-excel/blob/master/img/test2_20200101101121.jpg)
 
 
 ### Web方式导出Excel
@@ -200,7 +200,7 @@ public void getExcel(HttpServletRequest request, HttpServletResponse response) t
 }
 ```
 导出的文件如下所示  
-![导出文件的效果](https://github.com/sunshinelyz/mykit-excel/blob/master/mykit-excel-springboot/src/main/resources/img/test1_20200101100928.jpg)
+![导出文件的效果](https://github.com/sunshinelyz/mykit-excel/blob/master/img/test1_20200101100928.jpg)
 
 
 ### 注解方式导出Excel
@@ -280,7 +280,7 @@ public class AnnotationExportExcelController {
 ```
 
 导出的文件如下所示  
-![导出文件的效果](https://github.com/sunshinelyz/mykit-excel/blob/master/mykit-excel-springboot/src/main/resources/img/test2_20200101101121.jpg)
+![导出文件的效果](https://github.com/sunshinelyz/mykit-excel/blob/master/img/test2_20200101101121.jpg)
 
 ### 前端测试代码
 前端测试代码放在mykit-excel-springboot模块的```src/main/resources/html```目录下，修改html文件中的连接地址后，将其放在Tomcat或其他Web容器中，进行测试即可。
