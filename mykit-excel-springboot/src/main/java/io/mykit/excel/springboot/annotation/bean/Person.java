@@ -16,6 +16,7 @@
 package io.mykit.excel.springboot.annotation.bean;
 
 import io.mykit.excel.annotation.ExcelColumn;
+import lombok.Data;
 
 import java.io.Serializable;
 
@@ -24,6 +25,7 @@ import java.io.Serializable;
  * @version 1.0.0
  * @description 测试注解导出Excel
  */
+@Data
 public class Person implements Serializable {
     private static final long serialVersionUID = 3251965335162340137L;
 
@@ -38,19 +40,7 @@ public class Person implements Serializable {
         this.name = name;
     }
 
-    public String getId() {
-        return id;
-    }
+    public Person(){
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }

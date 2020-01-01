@@ -15,8 +15,8 @@
  */
 package io.mykit.excel.springboot.normal.springmvc;
 
+import io.mykit.excel.servlet.ExportExcelWrapper;
 import io.mykit.excel.springboot.normal.bean.Student;
-import io.mykit.excel.springmvc.ExportExcelWrapper;
 import io.mykit.excel.utils.excel.BaseExcelExportUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

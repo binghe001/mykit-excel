@@ -15,6 +15,8 @@
  */
 package io.mykit.excel.springboot.normal.bean;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -22,6 +24,7 @@ import java.io.Serializable;
  * @version 1.0.0
  * @description 测试类
  */
+@Data
 public class Student implements Serializable {
     private static final long serialVersionUID = -2987207599880734028L;
     private int id;
@@ -35,30 +38,6 @@ public class Student implements Serializable {
     public Student(int id, String name, String sex){
         this.id = id;
         this.name = name;
-        this.sex = sex;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
         this.sex = sex;
     }
 }

@@ -21,6 +21,7 @@
         <module>mykit-excel-test</module>
         <module>mykit-excel-springboot</module>
         <module>mykit-excel-annotation</module>
+        <module>mykit-excel-servlet</module>
     </modules>
 
     <dependencies>

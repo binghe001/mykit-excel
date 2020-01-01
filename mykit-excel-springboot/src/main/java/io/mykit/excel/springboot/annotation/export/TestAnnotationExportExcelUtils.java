@@ -13,36 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.mykit.excel.springboot.annotation.springmvc;
+package io.mykit.excel.springboot.annotation.export;
 
-import io.mykit.excel.servlet.ExportExcelWrapper;
 import io.mykit.excel.springboot.annotation.bean.Student;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import io.mykit.excel.utils.excel.AnnotationExcelExportUtils;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author binghe
  * @version 1.0.0
- * @description
+ * @description 测试注解导出Excel
  */
-@Controller
-@RequestMapping(value = "/annotation/export")
-public class AnnotationExportExcelController {
-
-    @RequestMapping("/excel")
-    public void getExcel(HttpServletRequest request, HttpServletResponse response) throws Exception {
+public class TestAnnotationExportExcelUtils {
+    public static void main(String[] args) throws FileNotFoundException {
         // 准备数据
         List<Student> list = new ArrayList<Student>();
         for (int i = 1; i <= 10; i++) {
             list.add(new Student("00" + i, "张三", "001", 100, "篮球"));
         }
-        String fileName = "springboot_excel";
-        ExportExcelWrapper<Student> wrapper = new ExportExcelWrapper<Student>();
-        wrapper.annotationExportExcel(fileName, fileName, list, Student.class, response, ExportExcelWrapper.EXCEL_FILE_2003);
+        AnnotationExcelExportUtils<Student> utils = new AnnotationExcelExportUtils<Student>();
+        utils.exportExcel("用户导出", list, new FileOutputStream("E:/test_annotation.xls"), Student.class, AnnotationExcelExportUtils.EXCEL_FILE_2003);
     }
 }

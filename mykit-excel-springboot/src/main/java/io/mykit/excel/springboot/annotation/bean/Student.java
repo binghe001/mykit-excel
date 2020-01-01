@@ -16,12 +16,14 @@
 package io.mykit.excel.springboot.annotation.bean;
 
 import io.mykit.excel.annotation.ExcelColumn;
+import lombok.Data;
 
 /**
  * @author binghe
  * @version 1.0.0
  * @description 注解学生类
  */
+@Data
 public class Student extends Person{
     private static final long serialVersionUID = -6180523202831503132L;
 
@@ -40,28 +42,7 @@ public class Student extends Person{
         this.hobby = hobby;
     }
 
+    public Student(){
 
-    public String getClassNo() {
-        return classNo;
-    }
-
-    public void setClassNo(String classNo) {
-        this.classNo = classNo;
-    }
-
-    public Integer getScore() {
-        return score;
-    }
-
-    public void setScore(Integer score) {
-        this.score = score;
-    }
-
-    public String getHobby() {
-        return hobby;
-    }
-
-    public void setHobby(String hobby) {
-        this.hobby = hobby;
     }
 }

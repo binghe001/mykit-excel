@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.mykit.excel.springmvc;
+package io.mykit.excel.servlet;
 
 import io.mykit.excel.annotation.utils.StringUtils;
 import io.mykit.excel.utils.excel.AnnotationExcelExportUtils;
