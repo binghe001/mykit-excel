@@ -25,6 +25,11 @@ mykit-excel插件是通用的Excel导出导出框架，旨在提供通用的Exce
 测试基于注解导出Java类为```io.mykit.excel.springboot.annotation.springmvc.AnnotationExportExcelController```，运行SpringBoot的启动类```io.mykit.excel.springboot.MykitExcelCoreApplication```
 之后，使用resources/html目录下的annotationExportExcel.html文件导出Excel即可。如果设置的IP和端口与mykit-excel-springboot模块不同，则修改annotationExportExcel.html文件中的IP和端口即可。  
 
+# 注解说明
+如果使用注解方式导出Excel，则需要在JavaBean的属性字段上添加```@ExcelColumn```注解，此注解中有三个属性，分别如下：  
+* isExport：表示是否将当前字段导出到Excel，true：是；false：否
+* title：导出到Excel时的当前列的标题；
+* sort：当前字段导出到Excel的列时，在Excel中的位置，值越小，当前列越靠前。
 
 # 使用方式
 
@@ -301,5 +306,4 @@ public class AnnotationExportExcelController {
 启动mykit-excel-springboot项目，即运行mykit-excel-springboot项目中的io.mykit.excel.springboot.MykitExcelCoreApplication类，
 将mykit-excel-springboot项目的src/main/resources/html下的annotationExportExcel.html文件发布到Tomcat等Web容器中访问annotationExportExcel.html文件的连接地址，
 打开页面点击“Submit”按钮即可。
-
 
