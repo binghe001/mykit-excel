@@ -10,7 +10,7 @@
     <version>1.0.0-SNAPSHOT</version>
 
     <properties>
-        <poi.version>3.16</poi.version>
+        <poi.version>5.2.1</poi.version>
         <slf4j.version>1.7.2</slf4j.version>
         <lombok.version>1.16.10</lombok.version>
     </properties>
