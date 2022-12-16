@@ -12,7 +12,7 @@
     <artifactId>mykit-excel-springmvc</artifactId>
 
     <properties>
-        <springmvc.version>5.1.9.RELEASE</springmvc.version>
+        <springmvc.version>5.2.20.RELEASE</springmvc.version>
     </properties>
 
     <dependencies>
